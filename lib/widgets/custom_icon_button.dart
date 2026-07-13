@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:note_app/utils/app_colors.dart';
 
 class CustomIconButton {
   CustomIconButton._local();
@@ -17,8 +16,8 @@ class CustomIconButton {
       icon: icon,
       iconSize: 30,
       style: IconButton.styleFrom(
-        backgroundColor: AppColors.iconBackgroundColor,
-        foregroundColor: AppColors.iconColor,
+        //backgroundColor: AppColors.iconBackgroundColor,
+        //foregroundColor: AppColors.iconColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     );
