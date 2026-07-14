@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:note_app/core/constants/app_color.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/screens/edit_note/widget/build_header.dart';
+import 'package:note_app/screens/edit_note/widget/edit_note_setting.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/constants/app_text_style.dart';
+import '../../core/managers/theme_manager.dart';
 import '../add_note_sheet/widget/color_picker.dart';
 
 class EditNoteScreen extends StatefulWidget {
@@ -44,7 +46,13 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
           child: Column(
             children: [
               SizedBox(height: 6.h),
-              BuildHeader(onPressedSavedUpdate: _updateNote),
+              BuildHeader(
+                onPressedBack: () {
+                  Navigator.of(context).pop();
+                },
+                onPressedMenu: _showMenu,
+                onPressedSave: _updateNote,
+              ),
               SizedBox(height: 5.h),
               _buildTextField(
                 controller: _titleController,
@@ -112,5 +120,33 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
     if (!mounted) return;
 
     Navigator.pop(context);
+  }
+
+  Future<void> _showMenu() async {
+    showModalBottomSheet(
+      context: context,
+
+      showDragHandle: true,
+
+      builder: (_) {
+        return EditNoteSetting(
+          isPinned: widget.note.isPinned,
+
+          isLightMode: !ThemeManager.instance.isDark,
+
+          onPinPressed: () async {
+            setState(() {
+              widget.note.isPinned = !widget.note.isPinned;
+            });
+
+            await widget.note.save();
+          },
+
+          onThemeChanged: (value) async {
+            await ThemeManager.instance.setTheme(!value);
+          },
+        );
+      },
+    );
   }
 }

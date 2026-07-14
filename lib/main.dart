@@ -6,6 +6,7 @@ import 'package:note_app/screens/splash/splash_screen.dart';
 
 import 'core/constants/hive_boxes.dart';
 import 'core/theme/dark_theme.dart';
+import 'core/theme/light_theme.dart';
 import 'models/note_model.dart';
 
 void main() async {
@@ -22,28 +23,31 @@ void main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  void refreshTheme() {
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, screenType) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          locale: Locale('en'),
-          theme: darkTheme,
-          themeMode: ThemeManager.instance.themeMode,
-          home: SplashScreen(),
+    return AnimatedBuilder(
+      animation: ThemeManager.instance,
+
+      builder: (context, _) {
+        return Sizer(
+          builder: (context, orientation, screenType) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+
+              locale: const Locale('en'),
+
+              theme: lightTheme,
+
+              darkTheme: darkTheme,
+
+              themeMode: ThemeManager.instance.themeMode,
+
+              home: const SplashScreen(),
+            );
+          },
         );
       },
     );
