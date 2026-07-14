@@ -32,4 +32,8 @@ class AppTextStyle {
     color: AppColor.basicWhite,
     fontWeight: FontWeight.bold,
   );
+  static TextStyle font18Bold = GoogleFonts.nunito(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
 }
