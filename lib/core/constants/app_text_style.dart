@@ -22,9 +22,14 @@ class AppTextStyle {
     color: AppColor.basicWhite,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle font18WhiteNormal = GoogleFonts.nunito(
+  static TextStyle font18BlackNormal = GoogleFonts.nunito(
     fontSize: 18,
     color: AppColor.basicBlack,
     fontWeight: FontWeight.normal,
+  );
+  static TextStyle font18WhiteNormal = GoogleFonts.nunito(
+    fontSize: 20,
+    color: AppColor.basicWhite,
+    fontWeight: FontWeight.bold,
   );
 }
