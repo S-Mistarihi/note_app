@@ -60,12 +60,7 @@ class HomeScreen extends StatelessWidget {
             context: context,
             isDismissible: true,
             enableDrag: true,
-            constraints: BoxConstraints(
-              maxHeight: 60.h,
-              minHeight: 10.h,
-              maxWidth: 100.w,
-              minWidth: 100.w,
-            ),
+
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40),
