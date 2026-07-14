@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:note_app/utils/app_text_style.dart';
+import 'package:note_app/core/constants/app_text_style.dart';
 
 class CustomTextField {
   CustomTextField._local();
