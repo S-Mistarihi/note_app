@@ -9,7 +9,7 @@ class CustomTextField {
 
   factory CustomTextField() => _shared;
 
-  Widget buildTextFormField({
+  Widget buildTextField({
     required TextEditingController controller,
     required FocusNode focusNode,
     required String hintText,
@@ -17,7 +17,7 @@ class CustomTextField {
     required int maxLines,
     required List<TextInputFormatter> inputFormatters,
   }) {
-    return TextFormField(
+    return TextField(
       controller: controller,
       focusNode: focusNode,
       textInputAction: textInputAction,
