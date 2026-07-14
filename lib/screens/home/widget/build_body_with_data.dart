@@ -1,44 +1,157 @@
 import 'package:flutter/material.dart';
+import 'package:note_app/core/constants/app_color.dart';
 import 'package:note_app/core/constants/app_text_style.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/screens/edit_note/edit_note_screen.dart';
 import 'package:note_app/utils/date_formatter.dart';
+import 'package:sizer/sizer.dart';
 
-class BuildBodyWithData extends StatelessWidget {
+class BuildBodyWithData extends StatefulWidget {
   final NoteModel note;
 
   const BuildBodyWithData({super.key, required this.note});
 
   @override
+  State<BuildBodyWithData> createState() => _BuildBodyWithDataState();
+}
+
+class _BuildBodyWithDataState extends State<BuildBodyWithData> {
+  bool _isDeleteMode = false;
+
+  @override
   Widget build(BuildContext context) {
+    final note = widget.note;
     return GestureDetector(
       onTap: () {
+        if (_isDeleteMode) {
+          setState(() {
+            _isDeleteMode = false;
+          });
+          return;
+        }
+
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => EditNoteScreen(note: note)),
         );
       },
+      onLongPress: () {
+        setState(() {
+          _isDeleteMode = true;
+        });
+      },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 5),
+        duration: Duration(milliseconds: 350),
         curve: Curves.bounceIn,
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.all(16),
 
         decoration: BoxDecoration(
-          color: Color(note.color),
+          color: _isDeleteMode
+              ? AppColor.deleteIconBackgroundColor
+              : Color(note.color),
+
           borderRadius: BorderRadius.circular(16),
         ),
 
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(note.title, style: AppTextStyle.font18WhiteNormal),
-            SizedBox(height: 8),
-            Text(note.content, style: AppTextStyle.font18WhiteNormal),
-            SizedBox(height: 12),
-            DateFormatter(dateTime: note.createdAt),
-          ],
-        ),
+        child: _isDeleteMode
+            ? Center(
+                child: IconButton(
+                  onPressed: () {
+                    _showDeleteDialog();
+                  },
+                  icon: Icon(
+                    Icons.delete_forever,
+                    color: AppColor.basicWhite,
+                    size: 35,
+                  ),
+                ),
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(note.title, style: AppTextStyle.font18BlackNormal),
+                  SizedBox(height: 8),
+                  Text(note.content, style: AppTextStyle.font18BlackNormal),
+                  SizedBox(height: 12),
+                  DateFormatter(dateTime: note.createdAt),
+                ],
+              ),
       ),
+    );
+  }
+
+  void _showDeleteDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          insetAnimationDuration: Duration(seconds: 10),
+          insetAnimationCurve: Curves.bounceIn,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 30),
+                Text(
+                  'Are you sure you want to delete this note?',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyle.font20WhiteBold,
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 5.h,
+                      width: 28.w,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _isDeleteMode = false;
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green,
+                          foregroundColor: AppColor.basicWhite,
+                        ),
+                        child: Text(
+                          'Cancel',
+                          style: AppTextStyle.font20WhiteBold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 4.w),
+                    SizedBox(
+                      height: 5.h,
+                      width: 28.w,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          await widget.note.delete();
+
+                          if (!context.mounted) return;
+
+                          Navigator.of(context).pop();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.deleteIconBackgroundColor,
+                          foregroundColor: AppColor.basicWhite,
+                        ),
+                        child: Text(
+                          'Delete',
+                          style: AppTextStyle.font20WhiteBold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

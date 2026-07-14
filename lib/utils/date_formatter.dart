@@ -15,11 +15,11 @@ class DateFormatter extends StatelessWidget {
         children: [
           Text(
             '${dateTime.day}/${dateTime.month}/${dateTime.year}',
-            style: AppTextStyle.font18WhiteNormal,
+            style: AppTextStyle.font18BlackNormal,
           ),
           Text(
             '${dateTime.hour}:${dateTime.minute}',
-            style: AppTextStyle.font18WhiteNormal,
+            style: AppTextStyle.font18BlackNormal,
           ),
         ],
       ),
