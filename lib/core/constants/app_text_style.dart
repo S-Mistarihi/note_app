@@ -7,7 +7,7 @@ import 'app_color.dart';
 class AppTextStyle {
   AppTextStyle._();
 
-  static TextStyle font28WhiteBold = GoogleFonts.aBeeZee(
+  static TextStyle font45WhiteBold = GoogleFonts.aBeeZee(
     fontSize: 45,
     color: AppColor.basicWhite,
     fontWeight: FontWeight.bold,
@@ -27,13 +27,21 @@ class AppTextStyle {
     color: AppColor.basicBlack,
     fontWeight: FontWeight.normal,
   );
-  static TextStyle font18WhiteNormal = GoogleFonts.nunito(
+  static TextStyle font20WhiteNormal2 = GoogleFonts.nunito(
     fontSize: 20,
     color: AppColor.basicWhite,
     fontWeight: FontWeight.bold,
   );
   static TextStyle font18Bold = GoogleFonts.nunito(
     fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle font24Bold = GoogleFonts.nunito(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle font35Bold = GoogleFonts.nunito(
+    fontSize: 35,
     fontWeight: FontWeight.bold,
   );
 }

@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 import 'package:note_app/screens/splash/splash_screen.dart';
 
 import 'core/constants/hive_boxes.dart';
+import 'core/managers/sort_manager.dart';
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 import 'models/note_model.dart';
@@ -19,6 +20,8 @@ void main() async {
   await HiveManager.instance.openBox<NoteModel>(HiveBoxes.notes);
 
   await ThemeManager.instance.init();
+
+  await SortManager.instance.init();
 
   runApp(MyApp());
 }
