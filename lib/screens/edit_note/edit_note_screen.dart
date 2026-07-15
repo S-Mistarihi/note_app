@@ -6,7 +6,6 @@ import 'package:note_app/screens/edit_note/widget/edit_note_setting.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/constants/app_text_style.dart';
-import '../../core/managers/theme_manager.dart';
 import '../add_note_sheet/widget/color_picker.dart';
 
 class EditNoteScreen extends StatefulWidget {
@@ -125,25 +124,15 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
   Future<void> _showMenu() async {
     showModalBottomSheet(
       context: context,
-
       showDragHandle: true,
-
       builder: (_) {
         return EditNoteSetting(
           isPinned: widget.note.isPinned,
-
-          isLightMode: !ThemeManager.instance.isDark,
-
           onPinPressed: () async {
             setState(() {
               widget.note.isPinned = !widget.note.isPinned;
             });
-
             await widget.note.save();
-          },
-
-          onThemeChanged: (value) async {
-            await ThemeManager.instance.setTheme(!value);
           },
         );
       },

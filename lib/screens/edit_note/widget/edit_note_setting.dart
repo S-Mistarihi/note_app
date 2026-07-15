@@ -4,17 +4,13 @@ import 'package:note_app/core/constants/app_text_style.dart';
 
 class EditNoteSetting extends StatelessWidget {
   final bool isPinned;
-  final bool isLightMode;
 
   final VoidCallback onPinPressed;
-  final ValueChanged<bool> onThemeChanged;
 
   const EditNoteSetting({
     super.key,
     required this.isPinned,
-    required this.isLightMode,
     required this.onPinPressed,
-    required this.onThemeChanged,
   });
 
   @override
@@ -43,20 +39,6 @@ class EditNoteSetting extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-
-            Divider(color: AppColor.buttonBackground, thickness: 1),
-
-            Row(
-              children: [
-                Icon(Icons.light_mode, color: AppColor.iconColor),
-                SizedBox(width: 16),
-                Expanded(
-                  child: Text('Light Mode', style: AppTextStyle.font18Bold),
-                ),
-
-                Switch(value: isLightMode, onChanged: onThemeChanged),
-              ],
             ),
           ],
         ),
