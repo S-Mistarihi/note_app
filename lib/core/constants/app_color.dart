@@ -11,13 +11,13 @@ class AppColor {
   static const Color deleteIconBackgroundColor = Color(0xff82111C);
 
   static const List<Color> cardColors = [
-    Color(0xff374253),
+    Color(0xFFC1BFBF),
     Color(0xffFD99FF),
     Color(0xff91F48F),
     Color(0xffB69CFF),
-    Color(0xff963932),
+    Color(0xffd4aa37),
     Color(0xffFFF599),
     Color(0xff9EFFFF),
-    Color(0xff3D386B),
+    Color(0xff6058a6),
   ];
 }

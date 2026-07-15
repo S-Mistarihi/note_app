@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/constants/app_assets.dart';
-import '../../../core/constants/app_text_style.dart';
 
 class BuildBodyWithoutData extends StatelessWidget {
   final bool isSearchEmpty;
@@ -14,20 +14,30 @@ class BuildBodyWithoutData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 14.h),
+        SizedBox(height: 16.h),
         if (isSearchEmpty)
           Image.asset(AppAssets.noNoteFound)
         else
           Lottie.asset(AppAssets.createFirstNote),
+        SizedBox(height: 16,),
         Text(
           isSearchEmpty ? 'No Notes Found' : 'No Notes Yet',
-          style: AppTextStyle.font20WhiteBold,
+          style: GoogleFonts.nunito(
+            fontSize: 20,
+            color: Theme.of(context).colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        SizedBox(height: 4,),
         Text(
           isSearchEmpty
               ? 'Try searching with another word'
               : 'Create your first note',
-          style: AppTextStyle.font20WhiteBold,
+          style: GoogleFonts.nunito(
+            fontSize: 20,
+            color: Theme.of(context).colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );

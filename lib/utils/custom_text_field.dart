@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:note_app/core/constants/app_text_style.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField {
   CustomTextField._local();
@@ -10,6 +10,7 @@ class CustomTextField {
   factory CustomTextField() => _shared;
 
   Widget buildTextField({
+    required BuildContext context,
     required TextEditingController controller,
     required FocusNode focusNode,
     required String hintText,
@@ -26,18 +27,25 @@ class CustomTextField {
       inputFormatters: inputFormatters,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: AppTextStyle.font24WhiteNormal,
-        border: _buildOutlineInputBorder(),
-        enabledBorder: _buildOutlineInputBorder(),
-        focusedBorder: _buildOutlineInputBorder(),
+        hintStyle: GoogleFonts.nunito(
+          fontSize: 24,
+          color: Theme.of(context).colorScheme.onSurface,
+          fontWeight: FontWeight.normal,
+        ),
+        border: _buildOutlineInputBorder(context),
+        enabledBorder: _buildOutlineInputBorder(context),
+        focusedBorder: _buildOutlineInputBorder(context),
       ),
     );
   }
 
-  OutlineInputBorder _buildOutlineInputBorder() {
+  OutlineInputBorder _buildOutlineInputBorder(BuildContext context) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: BorderSide(color: Colors.white, width: 1.5),
+      borderSide: BorderSide(
+        color: Theme.of(context).colorScheme.onSurface,
+        width: 1.5,
+      ),
     );
   }
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:note_app/core/constants/app_color.dart';
-import 'package:note_app/core/constants/app_text_style.dart';
 import 'package:note_app/screens/setting/setting_screen.dart';
 import 'package:note_app/utils/custom_icon_button.dart';
 
 import '../../../core/enum/sort_type.dart';
+import '../../../core/managers/theme_manager.dart';
 
 class BuildHeader extends StatelessWidget {
   final SortType currentSort;
@@ -20,30 +21,36 @@ class BuildHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('Note', style: AppTextStyle.font45WhiteBold),
+        Text(
+          'Note',
+          style: GoogleFonts.aBeeZee(
+            fontSize: 45,
+            color: Theme.of(context).colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         Spacer(),
         PopupMenuButton<SortType>(
           tooltip: 'Sort',
-          offset: const Offset(0, 18),
+          offset: const Offset(0, 3),
 
           position: PopupMenuPosition.under,
           elevation: 8,
-          color: AppColor.basicBlack.withValues(alpha: 0.60),
-          shadowColor: Colors.blue,
+          color: ThemeManager.instance.isDark
+              ? AppColor.buttonBackground.withValues(alpha: 0.60)
+              : AppColor.buttonBackground.withValues(alpha: 0.80),
+          shadowColor: AppColor.basicBlack,
+
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18),
           ),
           onSelected: onSortSelected,
           itemBuilder: (context) => [
             _buildMenuItem(title: 'Newest First', value: SortType.newest),
-
             _buildMenuItem(title: 'Oldest First', value: SortType.oldest),
-
             _buildMenuItem(title: 'A → Z', value: SortType.alphabeticalAZ),
-
             _buildMenuItem(title: 'Z → A', value: SortType.alphabeticalZA),
           ],
-
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.iconBackgroundColor,
@@ -95,7 +102,16 @@ class BuildHeader extends StatelessWidget {
       value: value,
       child: Row(
         children: [
-          Expanded(child: Text(title, style: AppTextStyle.font18Bold)),
+          Expanded(
+            child: Text(
+              title,
+              style: GoogleFonts.nunito(
+                fontSize: 18,
+                color: AppColor.basicWhite,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           if (currentSort == value)
             Icon(Icons.check, size: 18, color: AppColor.iconBackgroundColor),
         ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:note_app/core/constants/app_assets.dart';
 import 'package:note_app/core/constants/app_color.dart';
-import 'package:note_app/core/constants/app_text_style.dart';
 import 'package:note_app/screens/setting/widget/build_tab.dart';
 import 'package:note_app/screens/setting/widget/theme_setting.dart';
 import 'package:note_app/utils/custom_icon_button.dart';
@@ -35,7 +35,11 @@ class _SettingScreenState extends State<SettingScreen> {
                   icon: Icon(Icons.arrow_back_ios_new),
                 ),
                 SizedBox(width: 15),
-                Text('Setting', style: AppTextStyle.font35Bold),
+                Text('Setting', style: GoogleFonts.nunito(
+                  fontSize: 35,
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                )),
               ],
             ),
             SizedBox(height: 8.h),

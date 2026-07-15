@@ -66,6 +66,7 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
           children: [
             SizedBox(height: 20),
             CustomTextField().buildTextField(
+              context: context,
               controller: _titleController,
               focusNode: _titleFocusNode,
               hintText: 'Title',
@@ -75,6 +76,7 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
             ),
             SizedBox(height: 15),
             CustomTextField().buildTextField(
+              context: context,
               controller: _contentController,
               focusNode: _contentFocusNode,
               hintText: 'Type Something ...',

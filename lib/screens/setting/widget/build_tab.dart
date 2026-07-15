@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:note_app/core/constants/app_color.dart';
-import 'package:note_app/core/constants/app_text_style.dart';
 
 class BuildTab extends StatelessWidget {
   final void Function() onTap;
@@ -22,7 +22,11 @@ class BuildTab extends StatelessWidget {
         children: [
           Icon(icon, size: 30, color: AppColor.iconColor),
           SizedBox(width: 15),
-          Text(text, style: AppTextStyle.font24WhiteNormal),
+          Text(text, style: GoogleFonts.nunito(
+            fontSize: 24,
+            color: Theme.of(context).colorScheme.onSurface,
+            fontWeight: FontWeight.normal,
+          )),
         ],
       ),
     );

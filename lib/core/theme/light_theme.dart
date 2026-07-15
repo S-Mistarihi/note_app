@@ -1,39 +1,24 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app_color.dart';
+import 'app_colors_extension.dart';
+
 final ThemeData lightTheme = ThemeData(
   useMaterial3: true,
 
   brightness: Brightness.light,
 
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: Colors.blue,
-    brightness: Brightness.light,
-  ),
+  extensions: const [
+    AppColorsExtension(
+      primaryTextColor: AppColor.basicWhite,
 
-  scaffoldBackgroundColor: Colors.white,
+      secondaryTextColor: AppColor.basicBlack,
 
-  appBarTheme: const AppBarTheme(
-    centerTitle: true,
-    elevation: 0,
-    backgroundColor: Colors.white,
-    foregroundColor: Colors.black,
-  ),
+      borderColor: Color(0xffD8D8D8),
 
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Colors.blue,
-    foregroundColor: Colors.white,
-  ),
+      menuBackgroundColor: Colors.white,
 
-  cardTheme: CardThemeData(
-    elevation: 2,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
+      iconBackgroundColor: Color(0xffF5F5F5),
     ),
-  ),
-
-  inputDecorationTheme: InputDecorationTheme(
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-    ),
-  ),
+  ],
 );

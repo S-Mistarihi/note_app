@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/constants/app_color.dart';
-import '../../../core/constants/app_text_style.dart';
 
 class SearchBox extends StatelessWidget {
   final TextEditingController controller;
@@ -22,8 +22,12 @@ class SearchBox extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: 'Search...',
-        hintStyle: AppTextStyle.font18Bold,
-        prefixIcon: Icon(Icons.search, color: AppColor.iconColor,),
+        hintStyle: GoogleFonts.nunito(
+          fontSize: 18,
+          color: Theme.of(context).colorScheme.onSurface,
+          fontWeight: FontWeight.bold,
+        ),
+        prefixIcon: Icon(Icons.search, color: AppColor.iconColor),
         suffixIcon: ValueListenableBuilder<TextEditingValue>(
           valueListenable: controller,
           builder: (context, value, child) {
@@ -33,21 +37,24 @@ class SearchBox extends StatelessWidget {
 
             return IconButton(
               onPressed: onClear,
-              icon: Icon(Icons.close, color: AppColor.iconColor,),
+              icon: Icon(Icons.close, color: AppColor.iconColor),
             );
           },
         ),
-        border: _buildOutlineInputBorder(),
-        enabledBorder: _buildOutlineInputBorder(),
-        focusedBorder: _buildOutlineInputBorder(),
+        border: _buildOutlineInputBorder(context),
+        enabledBorder: _buildOutlineInputBorder(context),
+        focusedBorder: _buildOutlineInputBorder(context),
       ),
     );
   }
 
-  OutlineInputBorder _buildOutlineInputBorder() {
+  OutlineInputBorder _buildOutlineInputBorder(BuildContext context) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(45),
-      borderSide: BorderSide(color: Colors.white, width: 1.5),
+      borderSide: BorderSide(
+        color: Theme.of(context).colorScheme.onSurface,
+        width: 1.5,
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:note_app/core/constants/app_color.dart';
 import 'package:note_app/core/constants/app_text_style.dart';
 import 'package:note_app/models/note_model.dart';
@@ -153,7 +154,11 @@ class _BuildBodyWithDataState extends State<BuildBodyWithData> {
                 Text(
                   'Are you sure you want to delete this note?',
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.font20WhiteBold,
+                  style: GoogleFonts.nunito(
+                    fontSize: 20,
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(
