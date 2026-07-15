@@ -39,15 +39,10 @@ class MyApp extends StatelessWidget {
           builder: (context, orientation, screenType) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-
               locale: const Locale('en'),
-
               theme: lightTheme,
-
               darkTheme: darkTheme,
-
               themeMode: ThemeManager.instance.themeMode,
-
               home: const SplashScreen(),
             );
           },
