@@ -11,24 +11,23 @@ class SortManager {
 
   late SharedPreferences _prefs;
 
+  SortType _sortType = SortType.newest;
+
+  SortType get sortType => _sortType;
+
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
-  }
-
-  Future<void> saveSort(SortType sortType) async {
-    await _prefs.setInt(
-      _sortKey,
-      sortType.index,
-    );
-  }
-
-  SortType getSort() {
-    final index = _prefs.getInt(_sortKey);
-
-    if (index == null) {
-      return SortType.newest;
+    final value = _prefs.getString(_sortKey);
+    if (value != null) {
+      _sortType = SortType.values.firstWhere(
+        (element) => element.name == value,
+        orElse: () => SortType.newest,
+      );
     }
+  }
 
-    return SortType.values[index];
+  Future<void> changeSort(SortType value) async {
+    _sortType = value;
+    await _prefs.setString(_sortKey, value.name);
   }
 }
