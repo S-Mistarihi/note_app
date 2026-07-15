@@ -40,7 +40,7 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding:  EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(
           child: Column(
             children: [

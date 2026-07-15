@@ -28,6 +28,19 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
   Color _selectedColor = AppColor.cardColors.first;
 
   @override
+  void initState() {
+    super.initState();
+
+    _titleController.addListener(() {
+      setState(() {});
+    });
+
+    _contentController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
   void dispose() {
     _titleController.dispose();
     _contentController.dispose();
@@ -80,11 +93,12 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
               },
             ),
             SizedBox(height: 20),
-            SizedBox(
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
               width: 100.w,
               height: 5.h,
               child: ElevatedButton(
-                onPressed: _addNote,
+                onPressed: _canSave ? _addNote : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
                   foregroundColor: AppColor.basicWhite,
@@ -125,5 +139,10 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
     if (!mounted) return;
 
     Navigator.pop(context);
+  }
+
+  bool get _canSave {
+    return _titleController.text.trim().isNotEmpty ||
+        _contentController.text.trim().isNotEmpty;
   }
 }

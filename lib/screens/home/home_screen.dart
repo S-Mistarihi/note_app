@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sizer/sizer.dart';
 
@@ -6,6 +7,7 @@ import '../../core/constants/app_color.dart';
 import '../../core/constants/hive_boxes.dart';
 import '../../core/enum/sort_type.dart';
 import '../../core/managers/hive_manager.dart';
+import '../../core/managers/sort_manager.dart';
 import '../../models/note_model.dart';
 
 import '../../utils/note_shorter.dart';
@@ -26,12 +28,38 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
-  SortType _sortType = SortType.newest;
+  bool _showFab = true;
+
+  SortType get _sortType => SortManager.instance.sortType;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _scrollController.addListener(() {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        if (_showFab) {
+          setState(() {
+            _showFab = false;
+          });
+        }
+      } else {
+        if (!_showFab) {
+          setState(() {
+            _showFab = true;
+          });
+        }
+      }
+    });
+  }
 
   @override
   void dispose() {
     _searchController.dispose();
+    _scrollController.dispose();
 
     super.dispose();
   }
@@ -58,10 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 6.h),
             BuildHeader(
               currentSort: _sortType,
-              onSortSelected: (value) {
-                setState(() {
-                  _sortType = value;
-                });
+              onSortSelected: (value) async {
+                await SortManager.instance.changeSort(value);
+
+                setState(() {});
               },
             ),
             SizedBox(height: 12),
@@ -103,30 +131,40 @@ class _HomeScreenState extends State<HomeScreen> {
                                 isSearchEmpty:
                                     _searchController.text.isNotEmpty,
                               )
-                            : ListView(
-                                children: [
-                                  if (pinnedNotes.isNotEmpty) ...[
-                                    SectionHeader(
-                                      icon: Icons.push_pin,
-                                      title: 'Pinned',
-                                    ),
+                            : AnimatedSize(
+                                duration: const Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                                child: ListView(
+                                  controller: _scrollController,
+                                  children: [
+                                    if (pinnedNotes.isNotEmpty) ...[
+                                      SectionHeader(
+                                        icon: Icons.push_pin,
+                                        title: 'Pinned',
+                                      ),
 
-                                    ...pinnedNotes.map(
-                                      (note) => BuildBodyWithData(note: note),
-                                    ),
+                                      ...pinnedNotes.map(
+                                        (note) => BuildBodyWithData(
+                                          key: ValueKey(note.key),
+                                          note: note,
+                                        ),
+                                      ),
+                                    ],
+                                    if (otherNotes.isNotEmpty) ...[
+                                      SectionHeader(
+                                        icon: Icons.notes,
+                                        title: 'Others',
+                                      ),
+
+                                      ...otherNotes.map(
+                                        (note) => BuildBodyWithData(
+                                          key: ValueKey(note.key),
+                                          note: note,
+                                        ),
+                                      ),
+                                    ],
                                   ],
-
-                                  if (otherNotes.isNotEmpty) ...[
-                                    SectionHeader(
-                                      icon: Icons.notes,
-                                      title: 'Others',
-                                    ),
-
-                                    ...otherNotes.map(
-                                      (note) => BuildBodyWithData(note: note),
-                                    ),
-                                  ],
-                                ],
+                                ),
                               ),
                       ),
                     ],
@@ -138,24 +176,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: AppColor.basicWhite,
-        shape: const CircleBorder(),
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            isDismissible: true,
-            enableDrag: true,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-            ),
-            builder: (_) {
-              return const AddNoteBottomSheetScreen();
-            },
-          );
-        },
-        child: const Icon(Icons.add, size: 35),
+      floatingActionButton: AnimatedScale(
+        duration: const Duration(milliseconds: 250),
+        scale: _showFab ? 1.2 : 0,
+        child: FloatingActionButton(
+          backgroundColor: Colors.deepPurple,
+          foregroundColor: AppColor.basicWhite,
+          shape: const CircleBorder(),
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              isDismissible: true,
+              enableDrag: true,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+              ),
+              builder: (_) {
+                return const AddNoteBottomSheetScreen();
+              },
+            );
+          },
+          child: const Icon(Icons.add, size: 35),
+        ),
       ),
     );
   }
