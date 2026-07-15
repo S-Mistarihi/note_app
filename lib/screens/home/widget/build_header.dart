@@ -22,7 +22,6 @@ class BuildHeader extends StatelessWidget {
       children: [
         Text('Note', style: AppTextStyle.font45WhiteBold),
         Spacer(),
-        SizedBox(width: 5),
         PopupMenuButton<SortType>(
           tooltip: 'Sort',
           offset: const Offset(0, 18),
