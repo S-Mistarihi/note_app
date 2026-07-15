@@ -9,13 +9,11 @@ class AppTextStyle {
 
   static TextStyle font45WhiteBold = GoogleFonts.aBeeZee(
     fontSize: 45,
-    color: AppColor.basicWhite,
     fontWeight: FontWeight.bold,
   );
   static TextStyle font20WhiteBold = GoogleFonts.nunito(
     fontSize: 20,
-    color: AppColor.basicWhite,
-    fontWeight: FontWeight.bold,
+     fontWeight: FontWeight.bold,
   );
   static TextStyle font24WhiteNormal = GoogleFonts.nunito(
     fontSize: 24,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/constants/app_color.dart';
-import '../../../core/constants/app_text_style.dart';
 
 class ThemeSetting extends StatelessWidget {
   final bool isLightMode;
@@ -20,7 +20,14 @@ class ThemeSetting extends StatelessWidget {
         Icon(Icons.light_mode, color: AppColor.iconColor),
         SizedBox(width: 16),
         Expanded(
-          child: Text('Light Mode', style: AppTextStyle.font24WhiteNormal),
+          child: Text(
+            'Light Mode',
+            style: GoogleFonts.nunito(
+              fontSize: 24,
+              color: Theme.of(context).colorScheme.onSurface,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
         ),
 
         Switch(

@@ -40,7 +40,7 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 24.0),
+        padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -95,7 +95,24 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
         hintStyle: AppTextStyle.font24WhiteNormal,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white, width: 1.5),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.onSurface,
+            width: 1.5,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.onSurface,
+            width: 1.5,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.onSurface,
+            width: 1.5,
+          ),
         ),
       ),
     );

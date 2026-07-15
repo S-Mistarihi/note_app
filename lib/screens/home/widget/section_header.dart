@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:note_app/core/constants/app_color.dart';
-import 'package:note_app/core/constants/app_text_style.dart';
 
 class SectionHeader extends StatelessWidget {
   final IconData icon;
@@ -14,7 +14,14 @@ class SectionHeader extends StatelessWidget {
       children: [
         Icon(icon, size: 30, color: AppColor.iconColor),
         const SizedBox(width: 8),
-        Text(title, style: AppTextStyle.font35Bold),
+        Text(
+          title,
+          style: GoogleFonts.nunito(
+            fontSize: 35,
+            color: Theme.of(context).colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }

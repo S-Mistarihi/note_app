@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
         duration: const Duration(milliseconds: 250),
         scale: _showFab ? 1.2 : 0,
         child: FloatingActionButton(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: AppColor.iconColor,
           foregroundColor: AppColor.basicWhite,
           shape: const CircleBorder(),
           onPressed: () {
