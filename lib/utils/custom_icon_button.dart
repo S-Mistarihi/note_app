@@ -10,7 +10,7 @@ class CustomIconButton {
   factory CustomIconButton() => _shared;
 
   Widget buildIconButton({
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
     required Icon icon,
   }) {
     return IconButton(
