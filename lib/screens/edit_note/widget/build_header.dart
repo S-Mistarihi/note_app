@@ -18,7 +18,7 @@ class BuildHeader extends StatelessWidget {
       children: [
         CustomIconButton().buildIconButton(
           onPressed: onPressedBack,
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: Icon(Icons.close),
         ),
         Spacer(),
         CustomIconButton().buildIconButton(
