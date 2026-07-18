@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/core/constants/app_color.dart';
+import 'package:note_app/generated/l10n.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/screens/edit_note/widget/build_header.dart';
 import 'package:note_app/screens/edit_note/widget/edit_note_setting.dart';
@@ -55,13 +56,13 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
               SizedBox(height: 5.h),
               _buildTextField(
                 controller: _titleController,
-                hintText: 'Title',
+                hintText: S.of(context).titleLabel,
                 maxLines: 2,
               ),
               SizedBox(height: 15),
               _buildTextField(
                 controller: _contentController,
-                hintText: 'Type Something ...',
+                hintText: S.of(context).contentLabel,
                 maxLines: 10,
               ),
               SizedBox(height: 20),

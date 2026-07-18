@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/utils/custom_icon_button.dart';
 
-
 class BuildHeader extends StatelessWidget {
   final VoidCallback onPressedBack;
   final VoidCallback onPressedMenu;
   final VoidCallback onPressedSave;
 
   const BuildHeader({
-    super.key, required this.onPressedBack, required this.onPressedMenu, required this.onPressedSave,
-
+    super.key,
+    required this.onPressedBack,
+    required this.onPressedMenu,
+    required this.onPressedSave,
   });
 
   @override

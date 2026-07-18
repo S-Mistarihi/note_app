@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:note_app/core/constants/app_color.dart';
 import 'package:note_app/core/constants/app_text_style.dart';
 
+import '../../../generated/l10n.dart';
+
 class EditNoteSetting extends StatelessWidget {
   final bool isPinned;
 
@@ -34,7 +36,9 @@ class EditNoteSetting extends StatelessWidget {
                   ),
                   SizedBox(width: 16),
                   Text(
-                    isPinned ? 'Unpin Note' : 'Pin Note',
+                    isPinned
+                        ? S.of(context).unpinNoteLabel
+                        : S.of(context).pinNoteLabel,
                     style: AppTextStyle.font18Bold,
                   ),
                 ],

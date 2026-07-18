@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/constants/app_color.dart';
+import '../../../generated/l10n.dart';
 
 class SearchBox extends StatelessWidget {
   final TextEditingController controller;
@@ -20,8 +21,9 @@ class SearchBox extends StatelessWidget {
     return TextField(
       controller: controller,
       onChanged: onChanged,
+
       decoration: InputDecoration(
-        hintText: 'Search...',
+        hintText: S.of(context).searchBoxLabel,
         hintStyle: GoogleFonts.nunito(
           fontSize: 18,
           color: Theme.of(context).colorScheme.onSurface,

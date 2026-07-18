@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/constants/app_color.dart';
+import '../../../generated/l10n.dart';
 
 class ThemeSetting extends StatelessWidget {
   final bool isLightMode;
@@ -21,7 +22,7 @@ class ThemeSetting extends StatelessWidget {
         SizedBox(width: 16),
         Expanded(
           child: Text(
-            'Light Mode',
+            S.of(context).lightModeLabel,
             style: GoogleFonts.nunito(
               fontSize: 24,
               color: Theme.of(context).colorScheme.onSurface,
