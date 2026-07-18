@@ -133,9 +133,19 @@ class _BuildBodyWithDataState extends State<BuildBodyWithData> {
       key: const ValueKey('content'),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(note.title, style: AppTextStyle.font18BlackNormal),
+        Text(
+          note.title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: AppTextStyle.font18BlackNormal,
+        ),
         const SizedBox(height: 8),
-        Text(note.content, style: AppTextStyle.font18BlackNormal),
+        Text(
+          note.content,
+          maxLines: 4,
+          overflow: TextOverflow.ellipsis,
+          style: AppTextStyle.font18BlackNormal,
+        ),
         const SizedBox(height: 12),
         DateFormatter(dateTime: note.createdAt),
       ],

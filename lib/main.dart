@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:note_app/core/managers/hive_manager.dart';
 import 'package:note_app/core/managers/theme_manager.dart';
 import 'package:note_app/generated/l10n.dart';
@@ -18,6 +19,10 @@ import 'models/note_model.dart';
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   await HiveManager.instance.init();
 
