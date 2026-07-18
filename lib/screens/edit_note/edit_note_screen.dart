@@ -63,7 +63,7 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
               _buildTextField(
                 controller: _contentController,
                 hintText: S.of(context).contentLabel,
-                maxLines: 10,
+                maxLines: 18,
               ),
               SizedBox(height: 20),
               ColorPicker(
@@ -91,6 +91,9 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
       controller: controller,
       keyboardType: TextInputType.text,
       maxLines: maxLines,
+      onTapOutside: (_){
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: AppTextStyle.font24WhiteNormal,

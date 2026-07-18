@@ -25,6 +25,9 @@ class CustomTextField {
       keyboardType: TextInputType.text,
       maxLines: maxLines,
       inputFormatters: inputFormatters,
+      onTapOutside: (_){
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: GoogleFonts.nunito(

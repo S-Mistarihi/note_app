@@ -21,7 +21,9 @@ class SearchBox extends StatelessWidget {
     return TextField(
       controller: controller,
       onChanged: onChanged,
-
+      onTapOutside: (_){
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       decoration: InputDecoration(
         hintText: S.of(context).searchBoxLabel,
         hintStyle: GoogleFonts.nunito(

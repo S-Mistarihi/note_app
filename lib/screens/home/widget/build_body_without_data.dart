@@ -13,36 +13,42 @@ class BuildBodyWithoutData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 16.h),
-        if (isSearchEmpty)
-          Image.asset(AppAssets.noNoteFound)
-        else
-          Lottie.asset(AppAssets.createFirstNote),
-        SizedBox(height: 16),
-        Text(
-          isSearchEmpty
-              ? S.of(context).notFoundSearchNoteLabel
-              : S.of(context).notCreateNoteLabel,
-          style: GoogleFonts.nunito(
-            fontSize: 20,
-            color: Theme.of(context).colorScheme.onSurface,
-            fontWeight: FontWeight.bold,
-          ),
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            //SizedBox(height: 16.h),
+            if (isSearchEmpty)
+              Image.asset(AppAssets.noNoteFound)
+            else
+              Lottie.asset(AppAssets.createFirstNote),
+            SizedBox(height: 16),
+            Text(
+              isSearchEmpty
+                  ? S.of(context).notFoundSearchNoteLabel
+                  : S.of(context).notCreateNoteLabel,
+              style: GoogleFonts.nunito(
+                fontSize: 20,
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 4),
+            Text(
+              isSearchEmpty
+                  ? S.of(context).notFoundSearchNoteMessage
+                  : S.of(context).notCreateNoteMessage,
+              style: GoogleFonts.nunito(
+                fontSize: 20,
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 4.h),
+          ],
         ),
-        SizedBox(height: 4),
-        Text(
-          isSearchEmpty
-              ? S.of(context).notFoundSearchNoteMessage
-              : S.of(context).notCreateNoteMessage,
-          style: GoogleFonts.nunito(
-            fontSize: 20,
-            color: Theme.of(context).colorScheme.onSurface,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
