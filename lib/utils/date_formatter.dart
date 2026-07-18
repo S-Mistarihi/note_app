@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:note_app/l10n/app_locale.dart';
 
 import '../core/constants/app_text_style.dart';
 
@@ -9,18 +11,25 @@ class DateFormatter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final formattedDate = DateFormat(
+      'dd/MM/yyyy',
+      AppLocale().locale.languageCode,
+    ).format(dateTime);
+
+    final formattedTime = DateFormat.jm(
+      AppLocale().locale.languageCode,
+    ).format(dateTime);
+
     return Align(
-      alignment: Alignment.centerRight,
+      alignment: AppLocale().isArabic()
+          ? Alignment.centerLeft
+          : Alignment.centerRight,
       child: Column(
         children: [
-          Text(
-            '${dateTime.day}/${dateTime.month}/${dateTime.year}',
-            style: AppTextStyle.font18BlackNormal,
-          ),
-          Text(
-            '${dateTime.hour}:${dateTime.minute}',
-            style: AppTextStyle.font18BlackNormal,
-          ),
+          Text(formattedDate, style: AppTextStyle.font18BlackNormal),
+          Text(formattedTime, style: AppTextStyle.font18BlackNormal),
+
         ],
       ),
     );

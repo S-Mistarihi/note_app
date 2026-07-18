@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/constants/app_assets.dart';
+import '../../../generated/l10n.dart';
 
 class BuildBodyWithoutData extends StatelessWidget {
   final bool isSearchEmpty;
@@ -19,20 +20,22 @@ class BuildBodyWithoutData extends StatelessWidget {
           Image.asset(AppAssets.noNoteFound)
         else
           Lottie.asset(AppAssets.createFirstNote),
-        SizedBox(height: 16,),
+        SizedBox(height: 16),
         Text(
-          isSearchEmpty ? 'No Notes Found' : 'No Notes Yet',
+          isSearchEmpty
+              ? S.of(context).notFoundSearchNoteLabel
+              : S.of(context).notCreateNoteLabel,
           style: GoogleFonts.nunito(
             fontSize: 20,
             color: Theme.of(context).colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 4,),
+        SizedBox(height: 4),
         Text(
           isSearchEmpty
-              ? 'Try searching with another word'
-              : 'Create your first note',
+              ? S.of(context).notFoundSearchNoteMessage
+              : S.of(context).notCreateNoteMessage,
           style: GoogleFonts.nunito(
             fontSize: 20,
             color: Theme.of(context).colorScheme.onSurface,

@@ -8,6 +8,7 @@ import 'package:note_app/utils/custom_text_field.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/managers/hive_manager.dart';
+import '../../generated/l10n.dart';
 import '../../models/note_model.dart';
 
 class AddNoteBottomSheetScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
               context: context,
               controller: _titleController,
               focusNode: _titleFocusNode,
-              hintText: 'Title',
+              hintText: S.of(context).titleLabel,
               textInputAction: TextInputAction.next,
               maxLines: 1,
               inputFormatters: [LengthLimitingTextInputFormatter(100)],
@@ -79,7 +80,7 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
               context: context,
               controller: _contentController,
               focusNode: _contentFocusNode,
-              hintText: 'Type Something ...',
+              hintText: S.of(context).contentLabel,
               textInputAction: TextInputAction.done,
               maxLines: 6,
               inputFormatters: [LengthLimitingTextInputFormatter(1000)],
@@ -105,7 +106,10 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
                   backgroundColor: Colors.purple,
                   foregroundColor: AppColor.basicWhite,
                 ),
-                child: Text('Add Note', style: AppTextStyle.font20WhiteBold),
+                child: Text(
+                  S.of(context).addNoteButtonLabel,
+                  style: AppTextStyle.font20WhiteBold,
+                ),
               ),
             ),
             SizedBox(height: 25),
@@ -122,7 +126,7 @@ class _AddNoteBottomSheetScreenState extends State<AddNoteBottomSheetScreen> {
     if (title.isEmpty || content.isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Please fill all fields')));
+      ).showSnackBar(SnackBar(content: Text(S.of(context).snakBarMessage)));
       return;
     }
 

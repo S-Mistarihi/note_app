@@ -8,6 +8,7 @@ import '../../core/constants/hive_boxes.dart';
 import '../../core/enum/sort_type.dart';
 import '../../core/managers/hive_manager.dart';
 import '../../core/managers/sort_manager.dart';
+import '../../generated/l10n.dart';
 import '../../models/note_model.dart';
 
 import '../../utils/note_shorter.dart';
@@ -140,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     if (pinnedNotes.isNotEmpty) ...[
                                       SectionHeader(
                                         icon: Icons.push_pin,
-                                        title: 'Pinned',
+                                        title: S.of(context).pinnedHomeLabel,
                                       ),
 
                                       ...pinnedNotes.map(
@@ -153,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     if (otherNotes.isNotEmpty) ...[
                                       SectionHeader(
                                         icon: Icons.notes,
-                                        title: 'Others',
+                                        title: S.of(context).othersHomeLabel,
                                       ),
 
                                       ...otherNotes.map(

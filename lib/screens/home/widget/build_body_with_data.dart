@@ -7,6 +7,8 @@ import 'package:note_app/screens/edit_note/edit_note_screen.dart';
 import 'package:note_app/utils/date_formatter.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../generated/l10n.dart';
+
 class BuildBodyWithData extends StatefulWidget {
   final NoteModel note;
 
@@ -152,7 +154,7 @@ class _BuildBodyWithDataState extends State<BuildBodyWithData> {
               children: [
                 const SizedBox(height: 30),
                 Text(
-                  'Are you sure you want to delete this note?',
+                  S.of(context).deleteMessage,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.nunito(
                     fontSize: 20,
@@ -179,7 +181,7 @@ class _BuildBodyWithDataState extends State<BuildBodyWithData> {
                           foregroundColor: AppColor.basicWhite,
                         ),
                         child: Text(
-                          'Cancel',
+                          S.of(context).cancelButtonLabel,
                           style: AppTextStyle.font20WhiteBold,
                         ),
                       ),
@@ -209,7 +211,7 @@ class _BuildBodyWithDataState extends State<BuildBodyWithData> {
                           foregroundColor: AppColor.basicWhite,
                         ),
                         child: Text(
-                          'Delete',
+                          S.of(context).deleteButoonLabel,
                           style: AppTextStyle.font20WhiteBold,
                         ),
                       ),

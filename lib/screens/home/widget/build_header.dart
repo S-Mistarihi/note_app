@@ -6,6 +6,7 @@ import 'package:note_app/utils/custom_icon_button.dart';
 
 import '../../../core/enum/sort_type.dart';
 import '../../../core/managers/theme_manager.dart';
+import '../../../generated/l10n.dart';
 
 class BuildHeader extends StatelessWidget {
   final SortType currentSort;
@@ -22,7 +23,7 @@ class BuildHeader extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'Note',
+          S.of(context).homeRoot,
           style: GoogleFonts.aBeeZee(
             fontSize: 45,
             color: Theme.of(context).colorScheme.onSurface,
@@ -46,10 +47,22 @@ class BuildHeader extends StatelessWidget {
           ),
           onSelected: onSortSelected,
           itemBuilder: (context) => [
-            _buildMenuItem(title: 'Newest First', value: SortType.newest),
-            _buildMenuItem(title: 'Oldest First', value: SortType.oldest),
-            _buildMenuItem(title: 'A → Z', value: SortType.alphabeticalAZ),
-            _buildMenuItem(title: 'Z → A', value: SortType.alphabeticalZA),
+            _buildMenuItem(
+              title: S.of(context).newestOrderLabel,
+              value: SortType.newest,
+            ),
+            _buildMenuItem(
+              title: S.of(context).oldestOrderLabel,
+              value: SortType.oldest,
+            ),
+            _buildMenuItem(
+              title: S.of(context).azLabel,
+              value: SortType.alphabeticalAZ,
+            ),
+            _buildMenuItem(
+              title: S.of(context).zaKey,
+              value: SortType.alphabeticalZA,
+            ),
           ],
           child: Container(
             decoration: BoxDecoration(
