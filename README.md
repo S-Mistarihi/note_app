@@ -1,133 +1,50 @@
 # 📝 Note App
 
-A feature-rich Flutter note-taking application with local storage, customizable notes, theme switching, and multilingual support.
-
-<h3 align="center">
-A modern Flutter note-taking application with customizable notes, multilingual support, and efficient local data persistence.
-</h3>
-
-
-<p align="center">
-
-<img src="https://img.shields.io/badge/Flutter-Framework-blue?style=for-the-badge&logo=flutter">
-
-<img src="https://img.shields.io/badge/Dart-Language-blue?style=for-the-badge&logo=dart">
-
-<img src="https://img.shields.io/badge/Hive-Local%20Database-orange?style=for-the-badge">
-
-<img src="https://img.shields.io/badge/Localization-Multi%20Language-green?style=for-the-badge">
-
-</p>
-
+A feature-rich Flutter note-taking application that allows users to create, organize, and manage notes with customizable appearance, multilingual support, and local data persistence.
 
 ---
 
-# 📌 Overview
+# 📌 Features
 
-**Note App** is a Flutter application designed to provide users with a simple and efficient way to create, organize, and manage their notes.
+## 📝 Notes Management
 
-The application provides:
-
-- **Create, update, delete, and organize notes**
-- **Customizable note appearance**
-- **Dark & Light themes**
-- **Multi-language support**
-- **Local data persistence**
-
-The project focuses on implementing Flutter development concepts such as **local storage**, **localization**, **theme persistence**, and **user preferences management**.
-
----
-
-# ✨ Features
-
-## 📝 Note Management
-
-✔ **Create** new notes  
-✔ **View** notes details  
-✔ **Update** existing notes  
-✔ **Delete** notes  
-✔ **Pin / Unpin** important notes  
-
+- Create, view, update, and delete notes
+- Pin and unpin important notes
+- Customize note colors
+- Edit note appearance anytime
 
 ---
 
 ## 🔍 Search & Sorting
 
-✔ Search notes by **title**
-
-✔ Organize notes using:
-
-  - **Newest first**
-  - **Oldest first**
-  - **Alphabetical order**
-
+- Search notes by title
+- Sort notes by:
+  - Newest
+  - Oldest
+  - Alphabetical order
 
 ---
 
-## 🎨 Customization
+## 🎨 Themes & Localization
 
-✔ Select a custom color for each note
+- Support **Light Mode** and **Dark Mode**
+- Support multiple languages:
+  - 🇺🇸 English
+  - 🇸🇦 Arabic
+  - 🇫🇷 French
 
-✔ Modify note colors anytime
+Implemented using:
 
-✔ Support:
-
-  - **Light Theme**
-  - **Dark Theme**
-
-
----
-
-## 🌍 Localization
-
-### **Flutter Localization**
-
-Used to provide multilingual support for:
-
-- English 
-- Arabic 
-- French 
-
-
-### **Scoped Model**
-
-Used specifically for localization state management:
-
-- Managing the current locale
-- Notifying the UI when the selected language changes
-- Updating application localization dynamically
-
+- **Flutter Localization**
+- **Scoped Model** for managing localization state
 
 ---
 
-# 🛠 Tech Stack
-
-
-## 📱 Framework
-
-**Flutter**
-
-A UI toolkit used to build cross-platform applications with a single codebase.
-
-
----
-
-## 💻 Programming Language
-
-**Dart**
-
-The programming language used for Flutter development.
-
-
----
-
-## 🗄 Local Database
+# 💾 Local Storage
 
 ### **Hive**
 
-Fast and lightweight NoSQL local database.
-
-Used for:
+Used as a local database for:
 
 - Storing notes
 - Updating notes
@@ -135,20 +52,27 @@ Used for:
 - Retrieving notes
 
 
----
-
-
-## 💾 User Preferences
-
 ### **Shared Preferences**
 
-Used to store user settings:
+Used to persist user preferences:
 
 - Selected theme
 - Selected language
 
-The preferences are restored automatically when reopening the application.
+---
 
+# 🛠 Tech Stack
+
+| Technology | Usage |
+|---|---|
+| `flutter` | Cross-platform application development |
+| `dart` | Programming language |
+| `hive` | Local database |
+| `hive_flutter` | Hive integration with Flutter |
+| `shared_preferences` | Store user settings |
+| `flutter_localizations` | Multi-language support |
+| `scoped_model` | Localization state management |
+| `intl` | Internationalization |
 
 ---
 
@@ -201,35 +125,6 @@ flutter run
 
 ---
 
-# 📦 Dependencies
-
-
-| Package | Purpose |
-|---|---|
-| **Hive** | Local database for notes persistence |
-| **Hive Flutter** | Hive integration with Flutter |
-| **Shared Preferences** | Store user settings |
-| **Scoped Model** | Localization state management |
-| **Flutter Localization** | Multi-language support |
-| **Intl** | Internationalization |
-
-
----
-
-# 📌 Key Learning Outcomes
-
-Through this project, I practiced:
-
-- Flutter application development
-- Local data persistence using Hive
-- User preferences management
-- Localization implementation
-- Theme customization
-- Building reusable UI components
-
-
----
-
 # 🔮 Future Improvements
 
 - Add cloud synchronization
@@ -248,4 +143,5 @@ Computer Engineering | Junior Flutter Developer
 
 GitHub:  
 https://github.com/S-Mistarihi
+
 ---
