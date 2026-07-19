@@ -1,6 +1,6 @@
 # 📝 Note App
 
-A feature-rich Flutter note-taking application that allows users to create, organize, and manage notes with customizable appearance, multilingual support, and local data persistence.
+A feature-rich Flutter note-taking application built with **Hive**, **Shared Preferences**, and **Flutter Localization**, providing customizable notes, theme switching, and multilingual support.
 
 ---
 
@@ -29,22 +29,25 @@ A feature-rich Flutter note-taking application that allows users to create, orga
 
 - Support **Light Mode** and **Dark Mode**
 - Support multiple languages:
-  - 🇺🇸 English
-  - 🇸🇦 Arabic
-  - 🇫🇷 French
+  
+  | Language | Locale |
+  | -------- | ------ |
+  | English  | `en`   |
+  | Arabic   | `ar`   |
+  | French   | `fr`   |
 
-Implemented using:
-
-- **Flutter Localization**
-- **Scoped Model** for managing localization state
-
+  Implemented using:
+    - **`flutter_localizations`**
+    - **`intl`**
+    - **`scoped_model`** for localization state management
+  
 ---
 
 # 💾 Local Storage
 
 ### **Hive**
 
-Used as a local database for:
+Used as a local NoSQL database for:
 
 - Storing notes
 - Updating notes
@@ -58,6 +61,7 @@ Used to persist user preferences:
 
 - Selected theme
 - Selected language
+- User preferences between application sessions
 
 ---
 
@@ -70,7 +74,7 @@ Used to persist user preferences:
 | `hive` | Local database |
 | `hive_flutter` | Hive integration with Flutter |
 | `shared_preferences` | Store user settings |
-| `flutter_localizations` | Multi-language support |
+| `flutter_localizations` | Localization support |
 | `scoped_model` | Localization state management |
 | `intl` | Internationalization |
 
@@ -78,7 +82,7 @@ Used to persist user preferences:
 
 # 📱 Screenshots
 
-## 🌙 Dark Mode (English Language)
+## 🌙 Dark Mode - English Language
 
 | | | | | |
 |---|---|---|---|---|
@@ -88,7 +92,7 @@ Used to persist user preferences:
 
 ---
 
-## ☀️ Light Mode (Arabic Language)
+## ☀️ Light Mode - Arabic Language 
 
 | | | | | |
 |---|---|---|---|---|
@@ -127,8 +131,7 @@ flutter run
 
 # 🔮 Future Improvements
 
-- Add cloud synchronization
-- Add user accounts and backup
+- Add cloud backup and synchronization
 - Add reminders and notifications
 - Add attachments support (Images, Audio, PDF)
 
