@@ -26,7 +26,7 @@ A modern Flutter note-taking application with customizable notes, multilingual s
 
 The application provides:
 
-- **Complete note management**
+- **Create, update, delete, and organize notes**
 - **Customizable note appearance**
 - **Dark & Light themes**
 - **Multi-language support**
@@ -55,9 +55,9 @@ The project focuses on implementing Flutter development concepts such as **local
 
 ✔ Organize notes using:
 
-- **Newest first**
-- **Oldest first**
-- **Alphabetical order**
+  - **Newest first**
+  - **Oldest first**
+  - **Alphabetical order**
 
 
 ---
@@ -70,8 +70,8 @@ The project focuses on implementing Flutter development concepts such as **local
 
 ✔ Support:
 
-- **Light Theme**
-- **Dark Theme**
+  - **Light Theme**
+  - **Dark Theme**
 
 
 ---
@@ -82,18 +82,18 @@ The project focuses on implementing Flutter development concepts such as **local
 
 Used to provide multilingual support for:
 
-- English 🇺🇸
-- Arabic 🇸🇦
-- French 🇫🇷
+- English 
+- Arabic 
+- French 
 
 
 ### **Scoped Model**
 
 Used specifically for localization state management:
 
-- Managing current locale
-- Notifying UI about language changes
-- Connecting localization changes with the application state
+- Managing the current locale
+- Notifying the UI when the selected language changes
+- Updating application localization dynamically
 
 
 ---
@@ -135,7 +135,6 @@ Used for:
 
 ---
 
----
 
 ## 💾 User Preferences
 
@@ -153,7 +152,7 @@ The preferences are restored automatically when reopening the application.
 
 # 📱 Screenshots
 
-## 🌙 Dark Mode/English language selected
+## 🌙 Dark Mode (English)
 
 | | | | | |
 |---|---|---|---|---|
@@ -163,7 +162,7 @@ The preferences are restored automatically when reopening the application.
 
 ---
 
-## ☀️ Light Mode//English language selected
+## ☀️ Light Mode (Arabic)
 
 | | | | | |
 |---|---|---|---|---|
@@ -206,8 +205,9 @@ flutter run
 | Package | Purpose |
 |---|---|
 | **Hive** | Local database |
+| **Hive Flutter** | Hive integration with Flutter |
 | **Shared Preferences** | Store user settings |
-| **Scoped Model** | State management |
+| **Scoped Model** | Localization state management |
 | **Flutter Localization** | Multi-language support |
 | **Intl** | Internationalization |
 
@@ -216,10 +216,10 @@ flutter run
 
 # 🔮 Future Improvements
 
-- Add image, audio, and PDF attachments
-- Add reminders and notifications
 - Add cloud synchronization
-- Add authentication
+- Add user accounts and backup
+- Add reminders and notifications
+- Add attachments support (Images, Audio, PDF)
 
 
 ---
@@ -228,5 +228,6 @@ flutter run
 **Sara AL-Mistarihi**  
 Computer Engineering | Junior Flutter Developer   
 
-⭐ If you like this project, don't forget to give it a star!
+GitHub:  
+https://github.com/S-Mistarihi
 ---
