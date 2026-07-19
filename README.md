@@ -157,9 +157,9 @@ The preferences are restored automatically when reopening the application.
 
 | | | | | |
 |---|---|---|---|---|
-| <img src="screenshots/dark_theme/1_splash.gif" width="150"> | <img src="screenshots/dark_theme/2_home_with_no_data.gif" width="150"> | <img src="screenshots/dark_theme/3_add_note.png" width="150"> | <img src="screenshots/dark_theme/4_view_note.png" width="150"> | <img src="screenshots/dark_theme/5_edit_note_and_make_pinned.png" width="150"> |
-| <img src="screenshots/dark_theme/6_view_note_after_pin.png" width="150"> | <img src="screenshots/dark_theme/7_view_oldest_order.png" width="150"> | <img src="screenshots/dark_theme/8_search_with_no_result.png" width="150"> | <img src="screenshots/dark_theme/9_search_with_result.png" width="150"> | <img src="screenshots/dark_theme/10_delete" width="150"> |
-| <img src="screenshots/dark_theme/11_confrim_delete.png" width="150"> | <img src="screenshots/dark_theme/12_setting.png" width="150"> | <img src="screenshots/dark_theme/13_select_language.png" width="150"> | | |
+| <img src="asset/screenshots/dark_theme/1_splash.gif" width="150"> | <img src="asset/screenshots/dark_theme/2_home_with_no_data.gif" width="150"> | <img src="asset/screenshots/dark_theme/3_add_note.png" width="150"> | <img src="asset/screenshots/dark_theme/4_view_note.png" width="150"> | <img src="asset/screenshots/dark_theme/5_edit_note_and_make_pinned.png" width="150"> |
+| <img src="asset/screenshots/dark_theme/6_view_note_after_pin.png" width="150"> | <img src="asset/screenshots/dark_theme/7_view_oldest_order.png" width="150"> | <img src="asset/screenshots/dark_theme/8_search_with_no_result.png" width="150"> | <img src="asset/screenshots/dark_theme/9_search_with_result.png" width="150"> | <img src="asset/screenshots/dark_theme/10_delete.png" width="150"> |
+| <img src="asset/screenshots/dark_theme/11_confrim_delete.png" width="150"> | <img src="asset/screenshots/dark_theme/12_setting.png" width="150"> | <img src="asset/screenshots/dark_theme/13_select_language.png" width="150"> | | |
 
 ---
 
@@ -167,9 +167,9 @@ The preferences are restored automatically when reopening the application.
 
 | | | | | |
 |---|---|---|---|---|
-| <img src="screenshots/light_theme/1_splash.gif" width="150"> | <img src="screenshots/light_theme/2_home_with_no_data.png" width="150"> | <img src="screenshots/light_theme/3_add_note.png" width="150"> | <img src="screenshots/light_theme/4_view_note.png" width="150"> | <img src="screenshots/light_theme/5_edit_note_and_make_pinned.png" width="150"> |
-| <img src="screenshots/light_theme/6_view_note_after_pin.png" width="150"> | <img src="screenshots/light_theme/7_view_oldest_order.png" width="150"> | <img src="screenshots/light_theme/8_search_with_no_result.png" width="150"> | <img src="screenshots/light_theme/9_search_with_result.png" width="150"> | <img src="screenshots/light_theme/10_delete" width="150"> |
-| <img src="screenshots/light_theme/11_confrim_delete.png" width="150"> | <img src="screenshots/light_theme/12_setting.png" width="150"> | <img src="screenshots/light_theme/13_select_language.png" width="150"> | | |
+| <img src="asset/screenshots/light_theme/1_splash.gif" width="150"> | <img src="asset/screenshots/light_theme/2_home_with_no_data.png" width="150"> | <img src="asset/screenshots/light_theme/3_add_note.png" width="150"> | <img src="asset/screenshots/light_theme/4_view_note.png" width="150"> | <img src="asset/screenshots/light_theme/5_edit_note_and_make_pinned.png" width="150"> |
+| <img src="asset/screenshots/light_theme/6_view_note_after_pin.png" width="150"> | <img src="asset/screenshots/light_theme/7_view_zToa_order.png" width="150"> | <img src="asset/screenshots/light_theme/8_search_with_no_result.png" width="150"> | <img src="asset/screenshots/light_theme/9_search_with_result.png" width="150"> | <img src="asset/screenshots/light_theme/10_delete.png" width="150"> |
+| <img src="asset/screenshots/light_theme/11_confirm_delete.png" width="150"> | <img src="asset/screenshots/light_theme/12_setting.png" width="150"> | <img src="asset/screenshots/light_theme/13_select_language.png" width="150"> | | |
 
 
 ---
@@ -180,7 +180,7 @@ The preferences are restored automatically when reopening the application.
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your_username/note_app.git
+git clone git@github.com:S-Mistarihi/note_app.git
 ```
 
 
@@ -206,7 +206,6 @@ flutter run
 | Package | Purpose |
 |---|---|
 | **Hive** | Local database |
-| **Hive Flutter** | Hive integration with Flutter |
 | **Shared Preferences** | Store user settings |
 | **Scoped Model** | State management |
 | **Flutter Localization** | Multi-language support |
