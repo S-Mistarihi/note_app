@@ -1,5 +1,7 @@
 # 📝 Note App
 
+A feature-rich Flutter note-taking application with local storage, customizable notes, theme switching, and multilingual support.
+
 <h3 align="center">
 A modern Flutter note-taking application with customizable notes, multilingual support, and efficient local data persistence.
 </h3>
@@ -152,7 +154,7 @@ The preferences are restored automatically when reopening the application.
 
 # 📱 Screenshots
 
-## 🌙 Dark Mode (English)
+## 🌙 Dark Mode (English Language)
 
 | | | | | |
 |---|---|---|---|---|
@@ -162,7 +164,7 @@ The preferences are restored automatically when reopening the application.
 
 ---
 
-## ☀️ Light Mode (Arabic)
+## ☀️ Light Mode (Arabic Language)
 
 | | | | | |
 |---|---|---|---|---|
@@ -204,12 +206,26 @@ flutter run
 
 | Package | Purpose |
 |---|---|
-| **Hive** | Local database |
+| **Hive** | Local database for notes persistence |
 | **Hive Flutter** | Hive integration with Flutter |
 | **Shared Preferences** | Store user settings |
 | **Scoped Model** | Localization state management |
 | **Flutter Localization** | Multi-language support |
 | **Intl** | Internationalization |
+
+
+---
+
+# 📌 Key Learning Outcomes
+
+Through this project, I practiced:
+
+- Flutter application development
+- Local data persistence using Hive
+- User preferences management
+- Localization implementation
+- Theme customization
+- Building reusable UI components
 
 
 ---
@@ -225,7 +241,9 @@ flutter run
 ---
 
 ## 👤 Author
+
 **Sara AL-Mistarihi**  
+
 Computer Engineering | Junior Flutter Developer   
 
 GitHub:  
